@@ -21,6 +21,9 @@ use Mix.Config
 #     config :logger, level: :info
 #
 
+# General application configuration
+config :rsvp, ecto_repos: [Rsvp.Repo]
+
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment
 # by uncommenting the line below and defining dev.exs, test.exs and such.
@@ -29,13 +32,4 @@ use Mix.Config
 #
 #     import_config "#{Mix.env}.exs"
 
-# Configure your database
-config :rsvp, Rsvp.Repo,
-    adapter: Ecto.Adapters.Postgres,
-    hostname: "localhost",
-    database: "rsvp",
-    username: "postgres",
-    password: "postgres"
-
-# General application configuration
-config :rsvp, ecto_repos: [Rsvp.Repo]
+import_config "#{Mix.env}.exs"
